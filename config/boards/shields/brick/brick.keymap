@@ -1,0 +1,173 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+&mt {
+    tapping-term-ms = <250>;
+    flavor = "tap-preferred";
+};
+&sk {
+    release-after-ms = <2000>;
+    quick-release;
+};
+&caps_word {
+    continue-list = <UNDERSCORE BACKSPACE DELETE MINUS>;
+};
+
+/* Layers */
+#define AL1 0
+#define AL2 1
+#define A2U 2
+#define SYM 3	
+#define NAV 4
+#define BLE 5
+/ { 
+    combos {
+        compatible = "zmk,combos";
+        combo_caps {
+            timeout-ms = <175>;
+            key-positions = <14 15>;
+            bindings = <&caps_word>;
+        };
+        combo_NAV  {
+            timeout-ms = <175>;
+            key-positions = <0 1 2 3>;
+            bindings = <&tog NAV>;
+            layers = <AL1>;
+        };
+    };
+
+    // The hold-trigger-key-positions are mirrored so that the hand that is not
+    // responsible for a layer can be used (w/o delay) in said layer.
+
+    behaviors {
+        m_l: mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MODS_L";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29>; // right hand
+        };
+        m_r: mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MODS_R";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24>; // left hand
+        };
+        l_l: layers_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYERS_L";
+            #binding-cells = <2>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29>; // right hand
+        };
+        l_r: layers_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYERS_R";
+            #binding-cells = <2>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24>; // left hand
+        };
+        shftrep: shft_rep {
+             compatible = "zmk,behavior-hold-tap";
+             label = "SHFT_REP";
+             #binding-cells = <2>;
+             flavor = "hold-preferred";
+             tapping-term-ms = <300>;
+             quick-tap-ms = <250>;
+             bindings = <&kp>, <&key_repeat>;
+        };
+        td: tapdance {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAPDANCE";
+            #binding-cells = <2>;
+            tapping-term-ms = <190>;
+            quick-tap-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+        al2macro: behavior_macro_1 {
+			compatible = "zmk,behavior-macro";
+			label = "MACRO1";
+			#binding-cells = <0>;
+			bindings = < &sl AL2 >;
+		};
+		a2umacro: behavior_macro_2 {
+			compatible = "zmk,behavior-macro";
+			label = "MACRO2";
+			#binding-cells = <0>;
+			bindings = < &sl A2U >;
+        };
+    };
+
+    //      00  01  02  03  04      05  06  07  08  09
+    //      10  11  12  13  14      15  16  17  18  19
+    //      20  21  22  23  24      25  26  27  28  29
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        alpha1 {
+            bindings = <
+            &kp ESC  &m_l LCTL L    &m_l LALT G     &m_l LGUI D           &l_l BLE HASH  /**/  &l_r BLE DEL  &m_r RGUI H  &m_r RALT U   &m_r RCTL O     &kp BSPC
+            &kp I    &kp S          &kp R           &kp T                 &kp LSHFT      /**/  &kp RSHFT     &kp N        &kp E         &kp A           &kp C
+            &kp TAB  &l_l SYM FSLH  &l_l NAV MINUS  &mt LC(LS(LALT)) SPC  &key_repeat    /**/  &a2umacro     &al2macro    &l_r NAV DOT  &l_r SYM COMMA  &kp RET
+            >;
+        };
+
+        alpha2 {
+            bindings = <
+            &kp ESC  &kp V           &kp W           &kp M       &l_l BLE PRCNT  /**/  &l_r BLE DEL  &kp F    &kp DQT         &kp Z          &kp BSPC
+            &kp Q    &kp J           &kp P           &kp K       &kp LSHFT       /**/  &kp RSHFT     &kp B    &kp SQT         &kp X          &kp Y
+            &kp TAB  &l_l SYM QMARK  &l_l NAV UNDER  &sk LSHIFT  &key_repeat     /**/  &a2umacro     &to AL1  &l_r NAV COLON  &l_r SYM SEMI  &kp RET
+            >;
+        };
+
+        alpha2u {
+            bindings = <
+            &kp ESC    &kp LS(V)      &kp LS(W)    &kp LS(M)   &l_l BLE CARET  /**/  &l_r BLE DEL  &kp LS(F)  &kp DQT        &kp LS(Z)      &kp BSPC
+            &kp LS(Q)  &kp LS(J)      &kp LS(P)    &kp LS(K)   &kp LSHFT       /**/  &kp RSHFT     &kp LS(B)  &kp SQT        &kp LS(X)      &kp LS(Y)
+            &kp TAB    &l_l SYM EXCL  &l_l NAV AT  &sk LSHIFT  &key_repeat     /**/  &to AL1       &to AL1    &l_r NAV DLLR  &l_r SYM AMPS  &kp RET
+            >;
+        };
+
+        sym {
+            bindings = <
+            &kp ESC    &m_l LCTL LBRC  &m_l LALT LBKT  &m_l LGUI RBKT  &kp RBRC   /**/  &td COMMA DOT  &td RS(N7) N7  &td RS(N8) N8  &kp N9         &kp BSPC
+            &kp GRAVE  &kp TILDE       &kp LPAR        &kp RPAR        &kp LSHFT  /**/  &td STAR PLUS  &td RS(N4) N4  &td RS(N5) N5  &td RS(N6) N6  &td EQUAL N0
+            &kp TAB    &kp PIPE        &kp BSLH        &trans          &trans     /**/  &kp MINUS      &td RS(N1) N1  &td RS(N2) N2  &td RS(N3) N3  &kp RET
+            >;
+        };
+
+        nav {
+            bindings = <
+            &kp ESC    &m_l LCTL LG(LBKT)  &m_l LGUI LG(RBKT)   &kp LNLCK  &kp RC(RA(UP))    /**/  &kp DEL    &kp HOME  &kp UP    &kp END    &kp BSPC
+            &kp LSHFT  &kp LG(LBRC)        &kp RG(RBRC)         &none      &kp RC(RA(DOWN))  /**/  &kp PG_UP  &kp LEFT  &kp DOWN  &kp RIGHT  &none
+            &kp TAB    &td LG(V) LG(C)     &td LG(LA(V)) LG(X)  &none      &none             /**/  &kp PG_DN  &none     &none     &none      &kp RET
+            >;
+        };
+
+        ble {
+            bindings = <
+            &out OUT_BLE  &none  &none  &none        &none  /**/  &none  &none        &none  &none  &out OUT_BLE
+            &none         &none  &none  &bootloader  &none  /**/  &none  &bootloader  &none  &none  &none
+            &reset        &none  &none  &none        &none  /**/  &none  &none        &none  &none  &reset
+            >;
+        };
+
+    };
+};
