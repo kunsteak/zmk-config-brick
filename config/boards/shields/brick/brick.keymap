@@ -7,10 +7,6 @@
     tapping-term-ms = <250>;
     flavor = "tap-preferred";
 };
-&sk {
-    release-after-ms = <2000>;
-    quick-release;
-};
 &caps_word {
     continue-list = <UNDERSCORE BACKSPACE DELETE MINUS>;
 };
