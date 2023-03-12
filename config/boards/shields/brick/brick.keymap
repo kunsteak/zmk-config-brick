@@ -7,6 +7,10 @@
     tapping-term-ms = <250>;
     flavor = "tap-preferred";
 };
+&sk {
+     release-after-ms = <2000>;
+     quick-release;
+};
 &caps_word {
     continue-list = <UNDERSCORE BACKSPACE DELETE MINUS>;
 };
@@ -112,7 +116,7 @@
         alpha1 {
             bindings = <
             &kp ESC  &m_l LCTL L    &m_l LALT G     &m_l LGUI D           &l_l BLE HASH  /**/  &l_r BLE DEL  &m_r RGUI H  &m_r RALT U   &m_r RCTL O     &kp BSPC
-            &kp I    &kp S          &kp R           &kp T                 &kp LSHFT      /**/  &kp RSHFT     &kp N        &kp E         &kp A           &kp C
+            &kp I    &kp S          &kp R           &kp T                 &sk LSHFT      /**/  &sk RSHFT     &kp N        &kp E         &kp A           &kp C
             &kp TAB  &l_l SYM FSLH  &l_l NAV MINUS  &mt LC(LS(LALT)) SPC  &key_repeat    /**/  &a2umacro     &al2macro    &l_r NAV DOT  &l_r SYM COMMA  &kp RET
             >;
         };
@@ -120,7 +124,7 @@
         alpha2 {
             bindings = <
             &kp ESC  &kp V           &kp W           &kp M        &l_l BLE PRCNT  /**/  &l_r BLE DEL  &kp F    &kp DQT         &kp Z          &kp BSPC
-            &kp Q    &kp J           &kp P           &kp K        &kp LSHFT       /**/  &kp RSHFT     &kp B    &kp SQT         &kp X          &kp Y
+            &kp Q    &kp J           &kp P           &kp K        &sk LSHFT       /**/  &sk RSHFT     &kp B    &kp SQT         &kp X          &kp Y
             &kp TAB  &l_l SYM QMARK  &l_l NAV UNDER  &skq LSHIFT  &key_repeat     /**/  &a2umacro     &to AL1  &l_r NAV COLON  &l_r SYM SEMI  &kp RET
             >;
         };
@@ -128,7 +132,7 @@
         alpha2u {
             bindings = <
             &kp ESC    &kp LS(V)      &kp LS(W)    &kp LS(M)    &l_l BLE CARET  /**/  &l_r BLE DEL  &kp LS(F)  &kp DQT        &kp LS(Z)      &kp BSPC
-            &kp LS(Q)  &kp LS(J)      &kp LS(P)    &kp LS(K)    &kp LSHFT       /**/  &kp RSHFT     &kp LS(B)  &kp SQT        &kp LS(X)      &kp LS(Y)
+            &kp LS(Q)  &kp LS(J)      &kp LS(P)    &kp LS(K)    &sk LSHFT       /**/  &sk RSHFT     &kp LS(B)  &kp SQT        &kp LS(X)      &kp LS(Y)
             &kp TAB    &l_l SYM EXCL  &l_l NAV AT  &skq LSHIFT  &key_repeat     /**/  &to AL1       &to AL1    &l_r NAV DLLR  &l_r SYM AMPS  &kp RET
             >;
         };
