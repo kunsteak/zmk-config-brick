@@ -35,7 +35,7 @@
             timeout-ms = <175>;
             key-positions = <0 1 2 3>;
             bindings = <&tog NAV>;
-            layers = <AL1>;
+            layers = <AL1 NAV>;
         };
     };
 
