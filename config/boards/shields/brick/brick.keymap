@@ -116,41 +116,41 @@
 
         alpha1 {
             bindings = <
-            &kp ESC  &m_l LCTL L    &m_l LALT G     &m_l LGUI D           &l_l BLE HASH  /**/  &l_r BLE DEL  &m_r RGUI H  &m_r RALT U   &m_r RCTL O     &kp BSPC
-            &kp I    &kp S          &kp R           &kp T                 &sk LSHFT      /**/  &sk RSHFT     &kp N        &kp E         &kp A           &kp C
-            &kp TAB  &l_l SYM FSLH  &l_l NAV MINUS  &mt LC(LS(LALT)) SPC  &key_repeat    /**/  &a2umacro     &al2macro    &l_r NAV DOT  &l_r SYM COMMA  &kp RET
+            &kp ESC     &m_l LCTL L  &m_l LALT G  &m_l LGUI D           &l_l BLE HASH  /**/  &l_r BLE DEL  &m_r RGUI H  &m_r RALT U  &m_r RCTL O  &kp BSPC
+            &l_l SYM I  &kp S        &kp R        &l_l NAV T            &sk LSHFT      /**/  &sk RSHFT     &l_r NAV N   &kp E        &kp A        &l_r SYM C
+            &kp TAB     &kp FSLH     &kp MINUS    &mt LC(LS(LALT)) SPC  &key_repeat    /**/  &a2umacro     &al2macro    &kp COMMA    &kp DOT      &kp RET
             >;
         };
 
         alpha2 {
             bindings = <
-            &kp ESC  &kp V           &kp W           &kp M        &l_l BLE PRCNT  /**/  &l_r BLE DEL  &kp F    &kp DQT         &kp Z          &kp BSPC
-            &kp Q    &kp J           &kp P           &kp K        &sk LSHFT       /**/  &sk RSHFT     &kp B    &kp SQT         &kp X          &kp Y
-            &kp TAB  &l_l SYM QMARK  &l_l NAV UNDER  &skq LSHIFT  &key_repeat     /**/  &a2umacro     &to AL1  &l_r NAV COLON  &l_r SYM SEMI  &kp RET
+            &kp ESC  &kp V      &kp W      &kp M   &kp PRCNT  /**/  &kp DEL    &kp F    &kp COMMA  &kp Z    &kp BSPC
+            &kp Q    &kp J      &kp P      &kp K   &sk LSHFT  /**/  &sk RSHFT  &kp B    &kp DOT    &kp X    &kp Y
+            &kp TAB  &kp QMARK  &kp UNDER  &trans  &trans     /**/  &a2umacro  &to AL1  &kp SQT    &kp DQT  &kp RET
             >;
         };
 
         alpha2u {
             bindings = <
-            &kp ESC    &kp LS(V)      &kp LS(W)    &kp LS(M)    &l_l BLE CARET  /**/  &l_r BLE DEL  &kp LS(F)  &kp DQT        &kp LS(Z)      &kp BSPC
-            &kp LS(Q)  &kp LS(J)      &kp LS(P)    &kp LS(K)    &sk LSHFT       /**/  &sk RSHFT     &kp LS(B)  &kp SQT        &kp LS(X)      &kp LS(Y)
-            &kp TAB    &l_l SYM EXCL  &l_l NAV AT  &skq LSHIFT  &key_repeat     /**/  &to AL1       &to AL1    &l_r NAV DLLR  &l_r SYM AMPS  &kp RET
+            &kp ESC    &kp LS(V)  &kp LS(W)  &kp LS(M)  &kp CARET  /**/  &kp DEL    &kp LS(F)  &kp SEMI   &kp LS(Z)  &kp BSPC
+            &kp LS(Q)  &kp LS(J)  &kp LS(P)  &kp LS(K)  &sk LSHFT  /**/  &sk RSHFT  &kp LS(B)  &kp COLON  &kp LS(X)  &kp LS(Y)
+            &kp TAB    &kp EXCL   &kp AT     &trans     &trans     /**/  &to AL1    &to AL1    &kp LT     &kp GT     &kp RET
             >;
         };
 
         sym {
             bindings = <
-            &kp ESC    &m_l LCTL LBRC  &m_l LALT LBKT  &m_l LGUI RBKT  &kp RBRC   /**/  &td COMMA DOT  &td RS(N7) N7  &td RS(N8) N8  &kp N9         &kp BSPC
+            &kp ESC    &m_l LCTL LBRC  &m_l LALT LBKT  &m_l LGUI RBKT  &kp RBRC   /**/  &td COMMA DOT  &td RS(N7) N7  &td RS(N8) N8  &td FSLH N9    &kp BSPC
             &kp GRAVE  &kp TILDE       &kp LPAR        &kp RPAR        &kp LSHFT  /**/  &td STAR PLUS  &td RS(N4) N4  &td RS(N5) N5  &td RS(N6) N6  &td EQUAL N0
-            &kp TAB    &kp PIPE        &kp BSLH        &trans          &trans     /**/  &kp MINUS      &td RS(N1) N1  &td RS(N2) N2  &td RS(N3) N3  &kp RET
+            &kp TAB    &kp BSLH        &kp PIPE        &trans          &trans     /**/  &kp MINUS      &td RS(N1) N1  &td RS(N2) N2  &td RS(N3) N3  &kp RET
             >;
         };
 
         nav {
             bindings = <
-            &kp ESC    &m_l LCTL LG(LBKT)  &m_l LSHFT LG(RBKT)  &m_l LGUI KP_NUM  &kp RC(RA(UP))    /**/  &kp DEL    &kp HOME  &kp UP    &kp END    &kp BSPC
-            &kp LSHFT  &kp LG(LBRC)        &kp RG(RBRC)         &mkp LCLK         &kp RC(RA(DOWN))  /**/  &kp PG_UP  &kp LEFT  &kp DOWN  &kp RIGHT  &none
-            &kp TAB    &td LG(V) LG(C)     &td LG(LA(V)) LG(X)  &mkp RCLK         &mkp MCLK         /**/  &kp PG_DN  &none     &none     &none      &kp RET
+            &kp ESC    &m_l LCTL LG(LBKT)  &m_l LALT LG(RBKT)   &kp KP_NUM  &kp RC(RA(UP))    /**/  &kp DEL    &kp HOME  &kp UP     &kp END    &kp BSPC
+            &kp LSHFT  &kp LG(LBRC)        &kp RG(RBRC)         &mkp LCLK   &kp RC(RA(DOWN))  /**/  &kp PG_UP  &kp LEFT  &kp DOWN   &kp RIGHT  &kp LC(LS(LALT))
+            &kp TAB    &td LG(V) LG(C)     &td LG(LA(V)) LG(X)  &mkp RCLK   &mkp MCLK         /**/  &kp PG_DN  &kp RGUI  &kp COMMA  &kp SEMI   &kp RET
             >;
         };
 
