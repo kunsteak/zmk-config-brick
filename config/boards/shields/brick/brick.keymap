@@ -20,7 +20,7 @@
 #define AL1 0
 #define AL2 1
 #define A2U 2
-#define SYM 3	
+#define SYM 3
 #define NAV 4
 #define BLE 5
 / { 
@@ -124,25 +124,25 @@
 
         alpha2 {
             bindings = <
-            &kp ESC  &kp V      &kp W      &kp M   &kp PRCNT  /**/  &kp DEL    &kp F    &kp COMMA  &kp Z    &kp BSPC
-            &kp Q    &kp J      &kp P      &kp K   &sk LSHFT  /**/  &sk RSHFT  &kp B    &kp DOT    &kp X    &kp Y
-            &kp TAB  &kp QMARK  &kp UNDER  &trans  &trans     /**/  &a2umacro  &to AL1  &kp SQT    &kp DQT  &kp RET
+            &kp ESC  &kp V      &kp W      &kp M   &kp PRCNT  /**/  &kp DEL    &kp F    &kp SEMI   &kp Z     &kp BSPC
+            &kp Q    &kp J      &kp P      &kp K   &trans     /**/  &trans     &kp B    &kp COLON  &kp X     &kp Y
+            &kp TAB  &kp QMARK  &kp UNDER  &trans  &trans     /**/  &a2umacro  &to AL1  &kp DLLR   &kp AMPS  &kp RET
             >;
         };
 
         alpha2u {
             bindings = <
-            &kp ESC    &kp LS(V)  &kp LS(W)  &kp LS(M)  &kp CARET  /**/  &kp DEL    &kp LS(F)  &kp SEMI   &kp LS(Z)  &kp BSPC
-            &kp LS(Q)  &kp LS(J)  &kp LS(P)  &kp LS(K)  &sk LSHFT  /**/  &sk RSHFT  &kp LS(B)  &kp COLON  &kp LS(X)  &kp LS(Y)
-            &kp TAB    &kp EXCL   &kp AT     &trans     &trans     /**/  &to AL1    &to AL1    &kp LT     &kp GT     &kp RET
+            &kp ESC    &kp LS(V)  &kp LS(W)  &kp LS(M)  &kp CARET  /**/  &kp DEL  &kp LS(F)  &kp DQT  &kp LS(Z)  &kp BSPC
+            &kp LS(Q)  &kp LS(J)  &kp LS(P)  &kp LS(K)  &trans     /**/  &trans   &kp LS(B)  &kp SQT  &kp LS(X)  &kp LS(Y)
+            &kp TAB    &kp EXCL   &kp AT     &trans     &trans     /**/  &to AL1  &to AL1    &none    &none      &kp RET
             >;
         };
 
         sym {
             bindings = <
-            &kp ESC    &m_l LCTL LBRC  &m_l LALT LBKT  &m_l LGUI RBKT  &kp RBRC   /**/  &td COMMA DOT  &td RS(N7) N7  &td RS(N8) N8  &td FSLH N9    &kp BSPC
-            &kp GRAVE  &kp TILDE       &kp LPAR        &kp RPAR        &kp LSHFT  /**/  &td STAR PLUS  &td RS(N4) N4  &td RS(N5) N5  &td RS(N6) N6  &td EQUAL N0
-            &kp TAB    &kp BSLH        &kp PIPE        &trans          &trans     /**/  &kp MINUS      &td RS(N1) N1  &td RS(N2) N2  &td RS(N3) N3  &kp RET
+            &kp ESC    &m_l LCTL LBRC  &m_l LALT LBKT  &m_l LGUI RBKT  &kp RBRC  /**/  &td COMMA DOT  &td RS(N7) N7  &td RS(N8) N8  &td FSLH N9    &kp BSPC
+            &kp GRAVE  &kp TILDE       &kp LPAR        &kp RPAR        &trans    /**/  &kp PLUS       &td RS(N4) N4  &td RS(N5) N5  &td RS(N6) N6  &td EQUAL N0
+            &kp TAB    &kp BSLH        &kp PIPE        &trans          &trans    /**/  &kp MINUS      &td RS(N1) N1  &td RS(N2) N2  &td RS(N3) N3  &kp RET
             >;
         };
 
