@@ -140,9 +140,9 @@
 
         sym {
             bindings = <
-            &kp ESC    &m_l LCTL LBRC  &m_l LALT LBKT  &m_l LGUI RBKT  &kp RBRC  /**/  &td COMMA DOT  &td RS(N1) N1  &td RS(N2) N2  &td RS(N3) N3  &kp BSPC
-            &kp TAB    &kp TILDE       &kp LPAR        &kp RPAR        &trans    /**/  &kp PLUS       &td RS(N4) N4  &td RS(N5) N5  &td RS(N6) N6  &kp RET
-            &kp GRAVE  &kp BSLH        &kp PIPE        &trans          &trans    /**/  &kp MINUS      &td RS(N7) N7  &td RS(N8) N8  &td FSLH N9    &td EQUAL N0
+            &kp ESC   &m_l LCTL GRAVE  &m_l LALT LBKT  &m_l LGUI RBKT  &kp QMARK  /**/  &td COMMA DOT  &td RS(N1) N1  &td RS(N2) N2  &td RS(N3) N3  &kp BSPC
+            &kp TAB   &kp TILDE        &kp LPAR        &kp RPAR        &kp MINUS  /**/  &kp PLUS       &td RS(N4) N4  &td RS(N5) N5  &td RS(N6) N6  &kp RET
+            &kp SHFT  &kp BSLH         &kp PIPE        &trans          &trans     /**/  &kp FSLH       &td RS(N7) N7  &td RS(N8) N8  &td FSLH N9    &td EQUAL N0
             >;
         };
 
